@@ -1,0 +1,7 @@
+services:
+  react-app:
+    build: .
+    container_name: devops-build-pro3-react-app
+    ports:
+      - "80:80"
+    image: bakialakshmi/dev:dev
