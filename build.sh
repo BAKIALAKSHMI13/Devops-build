@@ -27,4 +27,4 @@ else
     echo "Unknown branch '$BRANCH'. Tagging as latest locally."
 fi
 
-echo "Build and push complete for branch: $BRANCH"
+echo "Build and push completed for branch: $BRANCH"
