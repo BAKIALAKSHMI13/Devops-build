@@ -28,11 +28,6 @@ pipeline {
         stage('Push to DockerHub') {
             steps {
                 script {
-                    withCredentials([usernamePassword(
-                        credentialsId: 'dockerhub-creds',
-                        usernameVariable: 'DOCKER_USER',
-                        passwordVariable: 'DOCKER_PASS'
-                    )]) {
                         echo "Logging into Docker Hub..."
                         sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
 
@@ -50,7 +45,6 @@ pipeline {
                     }
                 }
             }
-        }
 
         stage('Deploy Application') {
             when {
