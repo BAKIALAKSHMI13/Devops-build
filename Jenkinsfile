@@ -25,26 +25,6 @@ pipeline {
             }
         }
 
-        stage('Push to DockerHub') {
-            steps {
-                script {
-                        echo "Logging into Docker Hub..."
-                        sh "docker login -u $DOCKER_USER -p $DOCKER_PASS"
-                        if (env.BRANCH_NAME == 'dev') {
-                            echo "Pushing image to DEV repo..."
-                            sh "docker tag ${IMAGE_NAME}:latest ${DEV_REGISTRY}:${IMAGE_TAG}"
-                            sh "docker push ${DEV_REGISTRY}:${IMAGE_TAG}"
-                        } else if (env.BRANCH_NAME == 'master') {
-                            echo "Pushing image to PROD repo..."
-                            sh "docker tag ${IMAGE_NAME}:latest ${PROD_REGISTRY}:${IMAGE_TAG}"
-                            sh "docker push ${PROD_REGISTRY}:${IMAGE_TAG}"
-                        } else {
-                            echo "Branch ${env.BRANCH_NAME} is not dev/master — skipping push."
-                        }
-                    }
-                }
-            }
-
         stage('Deploy Application') {
             when {
                 branch 'dev'
