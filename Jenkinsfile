@@ -29,8 +29,7 @@ pipeline {
             steps {
                 script {
                         echo "Logging into Docker Hub..."
-                        sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
-
+                        sh "docker login -u $DOCKER_USER -p $DOCKER_PASS"
                         if (env.BRANCH_NAME == 'dev') {
                             echo "Pushing image to DEV repo..."
                             sh "docker tag ${IMAGE_NAME}:latest ${DEV_REGISTRY}:${IMAGE_TAG}"
