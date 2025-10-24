@@ -27,7 +27,7 @@ chmod +x build.sh deploy.sh
 
 4.	Automation with Scripts: To avoid typing the same commands again and again, we create scripts.
 	*build.sh → builds the Docker image
-  *deploy.sh → deploys it with Docker Compose
+    *deploy.sh → deploys it with Docker Compose
 This is a very common DevOps habit: automate small steps to save time and avoid mistakes.”
 Show both scripts.
 
@@ -44,15 +44,15 @@ git remote add origin https://github.com/BAKIALAKSHMI13/Devops-build
 git push origin dev
 
 6.	DockerHub Setup: DockerHub is like GitHub, but for images. We’ll create two repos:
-  	dev (public) → anyone can see/test our dev builds [bakialakshmi/dev]
-	prod (private) → only we control production builds [bakialakshmi/prod]
+  	*dev (public) → anyone can see/test our dev builds [bakialakshmi/dev]
+    *prod (private) → only we control production builds [bakialakshmi/prod]
 So, Jenkins can push different builds to different repos.
 Commands:
 docker tag react-app:latest bakialakshmi/dev:latest
 docker push bakialakshmi/dev:latest
 
 7.	Jenkins Setup: Jenkins is our automation engine. Every time code is pushed to GitHub, Jenkins will:
-	  *Pull the latest code
+    *Pull the latest code
     *Build the Docker image
     *Push the image to DockerHub
     *Deploy it to AWS
