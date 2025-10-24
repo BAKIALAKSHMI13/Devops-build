@@ -79,12 +79,12 @@ sudo usermod -aG docker ec2-user
 9.	Monitoring: Finally, we need to check if the app is healthy. We’ll use an open-source tool.
    *Uptime Kuma (very simple, nice dashboard). 
 [ex: docker run -d --restart=always -p 3001:3001 --name uptime-kuma louislam/uptime-kuma]
--	Access http://<EC2_IP>:3001
--	Add monitor for http://<EC2_IP>:80
+-	Access http://3.110.77.55:3001
+-	Add monitor for http://3.110.77.55:80
 
 10.	Project Submission:
-    	*GitHub repo URL
-	    *DockerHub repos (dev + prod)
+      *GitHub repo URL
+      *DockerHub repos (dev + prod)
       *Jenkins screenshots (config + build logs)
       *AWS screenshots (instance + SG rules)
       *Running site URL
